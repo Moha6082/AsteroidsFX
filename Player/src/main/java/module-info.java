@@ -1,8 +1,14 @@
-import dk.sdu.cbse.common.services.IEntityProcessingService;
-import dk.sdu.cbse.common.services.IGamePluginService;
-
 module Player {
     requires Common;
-    provides IGamePluginService with dk.sdu.cbse.player.PlayerPlugin;
-    provides IEntityProcessingService with dk.sdu.cbse.player.PlayerControlSystem;
+    requires java.desktop;              // til key‐events, hvis du bruger det
+
+    // Fortæl, at vi bruger dette SPI‐interface:
+    uses dk.sdu.cbse.common.bullet.BulletSPI;
+
+    exports dk.sdu.cbse.player;
+
+    provides dk.sdu.cbse.common.services.IGamePluginService
+            with dk.sdu.cbse.player.PlayerPlugin;
+    provides dk.sdu.cbse.common.services.IEntityProcessingService
+            with dk.sdu.cbse.player.PlayerControlSystem;
 }

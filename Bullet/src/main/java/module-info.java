@@ -8,5 +8,5 @@ module Bullet {
     provides dk.sdu.cbse.common.services.IEntityProcessingService
             with dk.sdu.cbse.bullet.BulletControlSystem;
     provides dk.sdu.cbse.common.bullet.BulletSPI
-            with dk.sdu.cbse.bullet.BulletControlSystem;  // NEW: register BulletControlSystem as a BulletSPI provider
+            with dk.sdu.cbse.bullet.BulletControlSystem;
 }

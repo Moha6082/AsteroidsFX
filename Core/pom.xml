@@ -20,12 +20,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
         <javafx.version>21.0.2</javafx.version>
-        <!-- Windows -->
         <javafx.platform>win</javafx.platform>
     </properties>
 
     <dependencies>
-        <!-- Fælles API + plugins -->
         <dependency>
             <groupId>dk.sdu.cbse</groupId>
             <artifactId>Common</artifactId>
@@ -47,7 +45,6 @@
             <version>${project.version}</version>
         </dependency>
 
-        <!-- JavaFX (med OS‐classifier) -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
@@ -64,7 +61,6 @@
 
     <build>
         <plugins>
-            <!-- 1) Copy alle runtime‐deps til Core/mods-mvn -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -82,7 +78,6 @@
                 </executions>
             </plugin>
 
-            <!-- 2) Compiler -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.10.1</version>
@@ -91,7 +86,6 @@
                 </configuration>
             </plugin>
 
-            <!-- 3) Exec: altid med korrekt -module-path -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>

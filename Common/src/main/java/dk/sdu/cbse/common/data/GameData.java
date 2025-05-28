@@ -29,7 +29,7 @@ public class GameData {
         this.displayHeight = displayHeight;
     }
 
-    // ----- NYE metoder -----
+
     public float getDeltaTime() {
         return deltaTime;
     }

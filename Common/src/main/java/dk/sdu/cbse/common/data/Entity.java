@@ -99,5 +99,12 @@ public class Entity implements Serializable {
     public double getMaxSpeed() {
         return 10;
     }
+
+    public boolean getDeath() {
+        return false;
+    }
+
+
+    }
     // ===================================
-}
+

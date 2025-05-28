@@ -20,8 +20,7 @@ public class PlayerControlSystem implements IEntityProcessingService {
     @Override
     public void process(GameData gameData, World world) {
 
-        for (Entity player : world.getEntities(dk.sdu.cbse.playersystem.Player.class)) {
-            // --- movement logic (unchanged) ---
+        for (Entity player : world.getEntities(dk.sdu.cbse.player.Player.class)) {
             if (gameData.getKeys().isDown(GameKeys.LEFT)) {
                 player.setRotation(player.getRotation() - 5);
             }
@@ -34,22 +33,21 @@ public class PlayerControlSystem implements IEntityProcessingService {
                 player.setX(player.getX() + changeX);
                 player.setY(player.getY() + changeY);
             }
-            // --- end movement logic ---
 
-            // NEW: shooting logic with single‐shot gating
+
+
             if (gameData.getKeys().isDown(GameKeys.SPACE)) {
                 if (canShoot) {
-                    // spawn one bullet via the first BulletSPI implementation
                     getBulletSPIs().stream().findFirst().ifPresent(
                             spi -> world.addEntity(spi.createBullet(player, gameData))
                     );
-                    canShoot = false;           // NEW: prevent continuous firing
+                    canShoot = false;
                 }
             } else {
-                canShoot = true;                // NEW: reset when SPACE is released
+                canShoot = true;
             }
 
-            // --- boundary checks (unchanged) ---
+
             if (player.getX() < 0) {
                 player.setX(1);
             }
@@ -62,7 +60,6 @@ public class PlayerControlSystem implements IEntityProcessingService {
             if (player.getY() > gameData.getDisplayHeight()) {
                 player.setY(gameData.getDisplayHeight() - 1);
             }
-            // --- end boundary checks ---
         }
     }
 

@@ -32,7 +32,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         gamePane = new Pane();
-        gamePane.setStyle("-fx-background-color: darkblue;");
+        gamePane.setStyle("-fx-background-color: darkgreen;");
         scene = new Scene(gamePane, 1600, 900);
 
         setupKeyHandling();
@@ -106,7 +106,6 @@ public class Main extends Application {
     }
 
     private void syncViews() {
-        // Remove deleted entities
         entityViews.entrySet().removeIf(ent -> {
             if (world.getEntity(ent.getKey()) == null) {
                 gamePane.getChildren().remove(ent.getValue());
@@ -115,14 +114,12 @@ public class Main extends Application {
             return false;
         });
 
-        // Add or update views
         for (Entity e : world.getEntities()) {
             Node view = entityViews.get(e.getID());
             if (view == null) {
                 Polygon poly = new Polygon(e.getPolygonCoordinates());
                 poly.setStrokeWidth(3);
 
-                // Color by type
                 if ("Enemy".equals(e.getType())) {
                     poly.setFill(Color.RED);
                 } else {

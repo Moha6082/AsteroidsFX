@@ -5,10 +5,6 @@ import dk.sdu.cbse.common.data.World;
 import dk.sdu.cbse.common.services.IGamePluginService;
 
 import java.util.Random;
-
-/**
- * Add a handful of enemies on startup.
- */
 public class EnemyPlugin implements IGamePluginService {
 
     private static final int NUM_ENEMIES = 5;

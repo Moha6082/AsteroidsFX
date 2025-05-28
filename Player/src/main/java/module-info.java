@@ -1,8 +1,8 @@
 module Player {
     requires Common;
-    requires java.desktop;              // til key‐events, hvis du bruger det
+    requires java.desktop;
 
-    // Fortæl, at vi bruger dette SPI‐interface:
+
     uses dk.sdu.cbse.common.bullet.BulletSPI;
 
     exports dk.sdu.cbse.player;

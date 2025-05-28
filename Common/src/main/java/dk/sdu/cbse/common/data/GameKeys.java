@@ -2,6 +2,8 @@ package dk.sdu.cbse.common.data;
 
 public class GameKeys {
 
+
+    public static final int DOWN =20 ;
     private static boolean[] keys;
     private static boolean[] pkeys;
 

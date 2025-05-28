@@ -1,5 +1,5 @@
 module Enemy {
-    requires Common;       // to see GameData, World, Entity, etc.
+    requires Common;
 
     exports dk.sdu.cbse.enemy;
 

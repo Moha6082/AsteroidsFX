@@ -13,7 +13,6 @@ public class World {
 
     private final Map<String, Entity> entityMap = new ConcurrentHashMap<>();
 
-    // Lists to hold processors
     private final List<IEntityProcessingService> entityProcessors = new ArrayList<>();
     private final List<IPostEntityProcessingService> postEntityProcessors = new ArrayList<>();
 
@@ -34,9 +33,7 @@ public class World {
         return entityMap.values();
     }
 
-    /**
-     * Returnerer kun de Entities, hvis klasse nøjagtigt matcher en af de givne typer.
-     */
+
     public <E extends Entity> List<E> getEntities(Class<E>... entityTypes) {
         List<E> result = new ArrayList<>();
         for (Entity e : getEntities()) {
@@ -55,16 +52,12 @@ public class World {
         return entityMap.get(ID);
     }
 
-    /**
-     * Registrer en IEntityProcessingService, der kaldes hver frame.
-     */
+
     public void addEntityProcessor(IEntityProcessingService proc) {
         entityProcessors.add(proc);
     }
 
-    /**
-     * Registrer en IPostEntityProcessingService, der kaldes hver frame efter entityProcessors.
-     */
+
     public void addPostEntityProcessor(IPostEntityProcessingService postProc) {
         postEntityProcessors.add(postProc);
     }

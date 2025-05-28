@@ -15,14 +15,12 @@ public class EnemyControlSystem implements IEntityProcessingService {
         for (Entity en : world.getEntities(Enemy.class)) {
             Enemy e = (Enemy) en;
 
-            // spin
+
             e.setRotation(e.getRotation() + Enemy.ROT_SPEED * dt);
 
-            // move
             double x = e.getX() + e.getDx() * dt;
             double y = e.getY() + e.getDy() * dt;
 
-            // wrap
             if (x < 0)      x = w;
             else if (x > w) x = 0;
             if (y < 0)      y = h;

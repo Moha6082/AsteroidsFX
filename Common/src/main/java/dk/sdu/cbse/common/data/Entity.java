@@ -13,11 +13,9 @@ public class Entity implements Serializable {
     private double rotation;
     private double radius;
 
-    // ===== NYE FELTER TIL BEVÆGELSE & TYPE =====
     private double dx;
     private double dy;
     private String type;
-    // ==========================================
 
     public String getID() {
         return ID.toString();
@@ -63,7 +61,6 @@ public class Entity implements Serializable {
         return radius;
     }
 
-    // ===== OPDATERED BEVÆGELSES-METODER =====
 
     public double getDx() {
         return dx;
@@ -80,9 +77,8 @@ public class Entity implements Serializable {
     public void setDy(double dy) {
         this.dy = dy;
     }
-    // ========================================
 
-    // ===== OPDATERET TYPE-METODER =====
+
 
     public String getType() {
         return type;
@@ -106,5 +102,5 @@ public class Entity implements Serializable {
 
 
     }
-    // ===================================
+
 

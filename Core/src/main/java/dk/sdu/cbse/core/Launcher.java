@@ -1,6 +1,6 @@
 package dk.sdu.cbse.core;
 
-import java.lang.ModuleLayer;                // <— CORRECT import
+import java.lang.ModuleLayer;
 import java.lang.module.Configuration;
 import java.lang.module.ModuleFinder;
 import java.nio.file.Path;
@@ -10,7 +10,6 @@ import java.util.List;
 
 public class Launcher {
     public static void main(String[] args) throws Exception {
-        // ── 1) Boot-layer: Core + Player JARs
         Path coreJar   = Paths.get("Core/target/Core-1.0-SNAPSHOT.jar");
         Path playerJar = Paths.get("Player/target/Player-1.0-SNAPSHOT.jar");
         ModuleFinder bootFinder = ModuleFinder.of(coreJar, playerJar);
@@ -25,7 +24,6 @@ public class Launcher {
                 .defineModulesWithOneLoader(bootConfig,
                         ClassLoader.getSystemClassLoader());
 
-        // ── 2) Plugin-layer: Bullet JAR fra Plugins\
         Path bulletJar = Paths.get("Plugins/Bullet-1.0-SNAPSHOT.jar");
         ModuleFinder plugFinder = ModuleFinder.of(bulletJar);
 
@@ -38,7 +36,6 @@ public class Launcher {
                 .defineModulesWithOneLoader(plugConfig,
                         ClassLoader.getSystemClassLoader());
 
-        // ── 3) Invoke Core.Main fra bootLayer
         Class<?> mainCls = Class.forName(
                 "dk.sdu.cbse.core.Main", true,
                 bootLayer.findLoader("dk.sdu.cbse.core")

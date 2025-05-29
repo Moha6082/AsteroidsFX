@@ -14,7 +14,6 @@ import static java.util.stream.Collectors.toList;
 
 public class PlayerControlSystem implements IEntityProcessingService {
 
-    // NEW: ensures we only fire one bullet per SPACE press
     private boolean canShoot = true;
 
     @Override

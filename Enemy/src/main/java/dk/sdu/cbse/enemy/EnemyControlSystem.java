@@ -15,9 +15,7 @@ public class EnemyControlSystem implements IEntityProcessingService {
         for (Entity en : world.getEntities(Enemy.class)) {
             Enemy e = (Enemy) en;
 
-
             e.setRotation(e.getRotation() + Enemy.ROT_SPEED * dt);
-
             double x = e.getX() + e.getDx() * dt;
             double y = e.getY() + e.getDy() * dt;
 

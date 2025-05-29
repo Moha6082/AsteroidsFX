@@ -20,7 +20,6 @@ public class AsteroidsControlSystem implements IPostEntityProcessingService {
 
     @Override
     public void process(GameData gameData, World world) {
-        // split & remove dead
         List<Entity> copy = new ArrayList<>(world.getEntities(Asteroids.class));
         for (Entity e : copy) {
             if (e.getDeath()) {

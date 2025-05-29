@@ -1,15 +1,19 @@
 module Core {
-    requires Common;
-    requires Player;
-    requires Bullet;
-
     requires javafx.controls;
     requires javafx.graphics;
 
-    exports dk.sdu.cbse.core;
+    requires Common;
+
+    requires spring.core;
+    requires spring.beans;
+    requires spring.context;
 
     uses dk.sdu.cbse.common.services.IGamePluginService;
     uses dk.sdu.cbse.common.services.IEntityProcessingService;
-    uses dk.sdu.cbse.common.services.IPostEntityProcessingService;  // Tilføjet!
-    uses dk.sdu.cbse.common.bullet.BulletSPI;
+    uses dk.sdu.cbse.common.services.IPostEntityProcessingService;
+
+    opens dk.sdu.cbse.core
+            to spring.core, spring.beans, spring.context;
+
+    exports dk.sdu.cbse.core;
 }

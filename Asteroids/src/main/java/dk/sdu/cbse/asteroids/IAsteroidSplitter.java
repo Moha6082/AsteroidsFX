@@ -19,14 +19,14 @@ public class IAsteroidSplitter implements SplitAsteroids {
             return;
         }
 
-        double originalRadius = original.getRadius(); // Brug double konsekvent
+        double originalRadius = original.getRadius();
 
         if (originalRadius <= MIN_SIZE) {
             world.removeEntity(original);
             return;
         }
 
-        double newRadius = originalRadius / 1.5; // Brug double
+        double newRadius = originalRadius / 1.5;
         double x = original.getX();
         double y = original.getY();
 
@@ -44,13 +44,13 @@ public class IAsteroidSplitter implements SplitAsteroids {
                     polyRadius, polyRadius
             );
 
-            // Placering med offset
+
             double offsetX = (rnd.nextDouble() - 0.5) * originalRadius * 1.5;
             double offsetY = (rnd.nextDouble() - 0.5) * originalRadius * 1.5;
             fragment.setX(x + offsetX);
             fragment.setY(y + offsetY);
 
-            // Rotation og bevægelse
+
             fragment.setRotation(rnd.nextDouble() * 360);
 
             double angle = Math.atan2(offsetY, offsetX);

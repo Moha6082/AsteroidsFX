@@ -16,7 +16,6 @@ public class EnemyPlugin implements IGamePluginService {
             world.addEntity(createEnemy(gameData));
         }
     }
-
     private Enemy createEnemy(GameData gd) {
         Enemy e = new Enemy();
         e.setType("Enemy");
@@ -31,7 +30,6 @@ public class EnemyPlugin implements IGamePluginService {
         e.setX(random.nextDouble() * gd.getDisplayWidth());
         e.setY(random.nextDouble() * gd.getDisplayHeight());
 
-        // random rotation
         e.setRotation(random.nextDouble() * 360.0);
 
         double rad = Math.toRadians(e.getRotation());
@@ -45,7 +43,7 @@ public class EnemyPlugin implements IGamePluginService {
 
     @Override
     public void stop(GameData gameData, World world) {
-        // remove all enemies
+        // remov all enemies
         world.getEntities(Enemy.class).forEach(world::removeEntity);
     }
 }

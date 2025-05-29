@@ -8,9 +8,6 @@ import dk.sdu.cbse.common.services.IGamePluginService;
 
 import java.util.Random;
 
-/**
- * Spawner en bølge på 10 tilfældige asteroider.
- */
 public class AsteroidsPlugin implements IGamePluginService {
     private static final int ASTEROID_COUNT = 10;
     private static final double MIN_SPEED = 30;
@@ -36,14 +33,12 @@ public class AsteroidsPlugin implements IGamePluginService {
                     size,  size
             );
 
-            // for Placering
             a.setX(rnd.nextDouble() * w);
             a.setY(rnd.nextDouble() * h);
 
             double angle = rnd.nextDouble() * 360;
             a.setRotation(angle);
 
-            // Tilfældig hastighed
             double speed = MIN_SPEED + rnd.nextDouble() * (MAX_SPEED - MIN_SPEED);
             double rad = Math.toRadians(angle);
             a.setDx(Math.cos(rad) * speed);

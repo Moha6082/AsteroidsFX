@@ -6,7 +6,6 @@ public class GameData {
     private int displayHeight = 800;
     private final GameKeys keys = new GameKeys();
 
-    // ----- NYT felt til tids-delta -----
     private float deltaTime;
 
     public GameKeys getKeys() {

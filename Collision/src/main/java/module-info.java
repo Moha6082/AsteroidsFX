@@ -1,7 +1,7 @@
 module Collision {
     requires Common;
     requires CommonAsteroids;
-    requires Player;
+    requires dk.sdu.cbse.player;
     requires Enemy;
 
     exports dk.sdu.cbse.collision;

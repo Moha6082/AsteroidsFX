@@ -8,4 +8,3 @@ public interface IEntityProcessingService {
 
 }
 
-//core // commanBullet // og bullet
